@@ -1,7 +1,7 @@
 ﻿//USEUNIT PageObjectRepo
 //USEUNIT GenericFunctions
 var PageObjects = require("PageObjectRepo");
-
+//dont some modifications in this code
 
 function VerifyCart()
 {
