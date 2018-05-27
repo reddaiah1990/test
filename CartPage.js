@@ -2,6 +2,7 @@
 //USEUNIT GenericFunctions
 var PageObjects = require("PageObjectRepo");
 var reddaiah='tanneru'
+var keerthi='Keerthana'
 
 function VerifyCart()
 {
