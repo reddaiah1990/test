@@ -3,6 +3,7 @@
 var PageObjects = require("PageObjectRepo");
 var reddaiah='tanneru'
 var keerthi='Keerthana'
+var second='Second Branch'
 
 function VerifyCart()
 {
