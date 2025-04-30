@@ -7,13 +7,13 @@ on:
           type: choice
           description: Environment
           options:
-  - QA1
-  - QA2
-  - CHSQA1
-  - SOMAQA1
-  - CHSQA2
-  - SOMAQA2
-  - scratchOrg
+              - QA1
+              - QA2
+              - CHSQA1
+              - SOMAQA1
+              - CHSQA2
+              - SOMAQA2
+              - scratchOrg
        tagname: 
          required: true
          type: string
