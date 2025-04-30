@@ -23,6 +23,6 @@ jobs:
     runs-on: terraform
   run-test:
     name: Run Automation Test Suite
-    uses: actions/checkout@v1
+    uses: ./.github/workflows/main.yml
     needs: map-envs
     run: mvn -f pom.xml clean test  -Dcucumber.filter.tags=${{inputs.tagname }} -DEnv=${{inputs.envname}}
