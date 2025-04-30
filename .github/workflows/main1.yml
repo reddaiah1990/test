@@ -3,7 +3,7 @@ name: Sample automation
 on:
   workflow_dispatch:
     inputs:
-      envname: null
+      envname: 
           type: choice
           description: Environment
           options:
@@ -14,15 +14,13 @@ on:
   - CHSQA2
   - SOMAQA2
   - scratchOrg
-       tagname: null
+       tagname: 
          required: true
          type: string
-jobs: null
-  map-envs: null
+jobs: 
+  map-envs: 
       runs-on: ubuntu-latest
-  steps: null
+  steps: 
     - name: Run Maven tests
       id: testing
-      run: >-
-  mvn -f pom.xml clean test  -Dcucumber.filter.tags=${{inputs.tagname }}
-  -DEnv=${{inputs.envname}}
+      run: mvn -f pom.xml clean test  -Dcucumber.filter.tags=${{inputs.tagname }} -DEnv=${{inputs.envname}}
