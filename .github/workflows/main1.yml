@@ -1,4 +1,4 @@
-name: SFSC Test automation
+name: Sample automation
 
 on:
   workflow_dispatch:
