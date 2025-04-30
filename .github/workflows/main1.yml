@@ -1,12 +1,23 @@
 name: Sample automation
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:    
     inputs:
-      tagname: 
-         description: "Tag names"
-         required: true
-         type: string
+      tagname:
+        type: string
+        description: "Tagnames"
+      envName:
+        type: choice
+        description: "Environment Name"
+        options:
+          - QA1
+          - QA2
+          - Phase3
+          - Phase4
+          - Phase5
+          - WHBM
+          - PlaceOrder
+          - placeOrder
 jobs:
   map-envs:
     #runs-on: ubuntu-latest
