@@ -1,0 +1,28 @@
+name: SFSC Test automation
+
+on:
+workflow_dispatch:
+  inputs:
+    envname: null
+          type: choice
+          description: Environment
+          options:
+  - QA1
+  - QA2
+  - CHSQA1
+  - SOMAQA1
+  - CHSQA2
+  - SOMAQA2
+  - scratchOrg
+       tagname: null
+         required: true
+         type: string
+jobs: null
+  map-envs: null
+      runs-on: ubuntu-latest
+  steps: null
+    - name: Run Maven tests
+      id: testing
+      run: >-
+  mvn -f pom.xml clean test  -Dcucumber.filter.tags=${{inputs.tagname }}
+  -DEnv=${{inputs.envname}}
