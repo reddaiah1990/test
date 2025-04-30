@@ -21,7 +21,8 @@ jobs:
   map-envs:
     #runs-on: ubuntu-latest
     runs-on: terraform
-    steps:
-        - name: Run Maven tests
-        id: testing
-        run: mvn -f pom.xml clean test  -Dcucumber.filter.tags=${{inputs.tagname }} -DEnv=${{inputs.envname}}
+  steps:
+     - name: Run Maven tests
+     id: testing
+     run: mvn -f pom.xml clean test  -Dcucumber.filter.tags=${{inputs.tagname }} -DEnv=${{inputs.envname}}
+    needs: map-envs
