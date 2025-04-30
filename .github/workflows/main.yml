@@ -1,69 +1,69 @@
 name: SFSC Test automation
- 
+
 on:
-  workflow_dispatch:
-    inputs:
-      projectname:
-        type: choice
-        description: Project
-        options:
-          - WHBM
-          - CHICOS
-          - SOMA
-      tagName:
-        type: choice
-        description: tagName
-        options:
-          - Phase1
-          - Phase2
-          - Phase3
-          - Phase4
-          - Phase5
-          - WHBM
-          - PlaceOrder
-          - placeOrder
-      testtype:
-        type: choice
-        description: Test type
-        options:
-          - RegressionTest
-          - SmokeTest
-          - ProdSmokeTest
-      envname:
-        type: choice
-        description: Environment
-        options:
-            - QA1
-            - QA2
-            - CHSQA1
-            - SOMAQA1
-            - CHSQA2
-            - SOMAQA2
-            - scratchOrg
-      replicas:
-        description: "Number of nodes"
-        default: 2
- 
+  workflow_dispatch:
+    inputs:
+      projectname:
+        type: choice
+        description: Project
+        options:
+          - WHBM
+          - CHICOS
+          - SOMA
+      tagName:
+        type: choice
+        description: tagName
+        options:
+          - Phase1
+          - Phase2
+          - Phase3
+          - Phase4
+          - Phase5
+          - WHBM
+          - PlaceOrder
+          - placeOrder
+      testtype:
+        type: choice
+        description: Test type
+        options:
+          - RegressionTest
+          - SmokeTest
+          - ProdSmokeTest
+      envname:
+        type: choice
+        description: Environment
+        options:
+          - QA1
+          - QA2
+          - CHSQA1
+          - SOMAQA1
+          - CHSQA2
+          - SOMAQA2
+          - scratchOrg
+      replicas:
+        description: "Number of nodes"
+        default: 2
+
 jobs:
-  map-envs:
-     #runs-on: ubuntu-latest
-    runs-on: terraform
-    steps:
-      - id: map-folder
-        run: |         
-              echo "folder-path=Salesforce_Project" >> $GITHUB_OUTPUT
-                  
-    outputs:
-      folder-path: ${{ steps.map-folder.outputs.folder-path }}
- 
-  run-test:
-    name: Run Automation Test Suite
-    uses: ./.github/workflows/testsuitesfsc.yml
-    needs: map-envs
-    with:
-      directory: ${{ needs.map-envs.outputs.folder-path }}
-      env-name: ${{ inputs.envname }}
-      tag-name: ${{ inputs.tagName }}
-      brand-name: ${{ inputs.projectname }}
-      replicas: ${{ inputs.replicas }}
-    secrets: inherit
+  map-envs:
+    #runs-on: ubuntu-latest
+    runs-on: terraform
+    steps:
+      - id: map-folder
+        run: |
+          echo "folder-path=Salesforce_Project" >> $GITHUB_OUTPUT
+    
+    outputs:
+      folder-path: ${{ steps.map-folder.outputs.folder-path }}
+  
+  run-test:
+    name: Run Automation Test Suite
+    uses: ./.github/workflows/testsuitesfsc.yml
+    needs: map-envs
+    with:
+      directory: ${{ needs.map-envs.outputs.folder-path }}
+      env-name: ${{ inputs.envname }}
+      tag-name: ${{ inputs.tagName }}
+      brand-name: ${{ inputs.projectname }}
+      replicas: ${{ inputs.replicas }}
+    secrets: inherit
