@@ -3,10 +3,13 @@ name: Sample automation
 on:
   workflow_dispatch:
     inputs:
-      envname:
+       tagname: 
+         required: true
+         type: string
+    envname:
+          description: "Environment"
           required: true
           type: choice
-          description: "Environment"
           options:
               - QA1
               - QA2
@@ -15,9 +18,6 @@ on:
               - CHSQA2
               - SOMAQA2
               - scratchOrg
-       tagname: 
-         required: true
-         type: string
 jobs:
   map-envs:
     #runs-on: ubuntu-latest
