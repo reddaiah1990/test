@@ -23,7 +23,7 @@ jobs:
     runs-on: terraform
   
   steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout
       - name: Run Maven tests
       id: testing
       run: mvn -f pom.xml clean test  -Dcucumber.filter.tags=${{inputs.tagname }} -DEnv=${{inputs.envname}}
