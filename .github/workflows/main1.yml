@@ -6,7 +6,7 @@ on:
       envname:
           required: true
           type: choice
-          description: Environment
+          description: "Environment"
           options:
               - QA1
               - QA2
