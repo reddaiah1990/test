@@ -22,10 +22,7 @@ jobs:
     #runs-on: ubuntu-latest
     runs-on: terraform
     steps:
-      - id: map-folder
-        run: |
-          echo "folder-path=Salesforce_Project" >> $GITHUB_OUTPUT
+      - id: Maven Run
+        run: mvn -f pom.xml clean test  -Dcucumber.filter.tags=${{inputs.tagname }} -DEnv=${{inputs.envname}}
     
-    outputs:
-      folder-path: ${{ steps.map-folder.outputs.folder-path }}
   
