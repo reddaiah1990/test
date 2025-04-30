@@ -12,12 +12,11 @@ on:
         options:
           - QA1
           - QA2
-          - Phase3
-          - Phase4
-          - Phase5
-          - WHBM
-          - PlaceOrder
-          - placeOrder
+          - CHSQA1
+          - CHSQA2
+          - SOMAQA1
+          - SOMAQA2
+          - scratchOrg
 jobs:
   map-envs:
     #runs-on: ubuntu-latest
