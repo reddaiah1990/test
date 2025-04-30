@@ -23,6 +23,6 @@ jobs:
     runs-on: terraform
   run-test:
     name: Run Automation Test Suite
-    uses: ./.github/workflows/CartPage.js
+    uses: actions/checkout@v1
     needs: map-envs
     run: mvn -f pom.xml clean test  -Dcucumber.filter.tags=${{inputs.tagname }} -DEnv=${{inputs.envname}}
