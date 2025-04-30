@@ -1,9 +1,9 @@
 name: SFSC Test automation
 
 on:
-workflow_dispatch:
-  inputs:
-    envname: null
+  workflow_dispatch:
+    inputs:
+      envname: null
           type: choice
           description: Environment
           options:
