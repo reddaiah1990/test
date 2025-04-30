@@ -21,6 +21,13 @@ jobs:
   map-envs:
     #runs-on: ubuntu-latest
     runs-on: terraform
+    steps:
+      - id: map-folder
+        run: |
+          echo "folder-path=Salesforce_Project" >> $GITHUB_OUTPUT
+    
+    outputs:
+      folder-path: ${{ steps.map-folder.outputs.folder-path }}
   run-test:
     name: Run Automation Test Suite
     uses: ./.github/workflows/main.yml
